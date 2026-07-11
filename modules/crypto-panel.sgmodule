@@ -1,0 +1,10 @@
+#!name=Crypto Panel 加密貨幣面板
+#!desc=Surge 首頁顯示 BTC / ETH / SOL 即時價格與 24h 漲跌（資料來源：Binance 公開 API）。預設 5 分鐘更新。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Panel]
+crypto-panel = script-name=crypto-panel,update-interval=300
+
+[Script]
+crypto-panel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/brytt1017/surge-modules/main/scripts/crypto-panel.js

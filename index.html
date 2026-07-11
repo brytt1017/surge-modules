@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mingliang Lab · Surge 模組安裝頁</title>
+<style>
+  :root {
+    --bg: #0f1115; --card: #181b21; --border: #2a2e37;
+    --text: #e7e9ee; --muted: #9aa1ad; --accent: #4f8cff; --green: #2ecc71;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans TC', -apple-system, sans-serif;
+    background: var(--bg); color: var(--text);
+    max-width: 640px; margin: 0 auto; padding: 40px 16px 64px;
+    line-height: 1.6;
+  }
+  h1 { font-size: 24px; }
+  .sub { color: var(--muted); font-size: 14px; margin: 4px 0 28px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px; margin-bottom: 14px;
+  }
+  .card h2 { font-size: 16px; margin-bottom: 4px; }
+  .tag {
+    display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 99px;
+    border: 1px solid var(--border); color: var(--muted); margin-left: 8px; vertical-align: middle;
+  }
+  .desc { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  a.btn, button.btn {
+    display: inline-block; padding: 8px 14px; font-size: 13px; border-radius: 8px;
+    border: none; cursor: pointer; text-decoration: none;
+    background: var(--accent); color: #fff;
+  }
+  button.copy { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+  button.copy.done { color: var(--green); border-color: var(--green); }
+  .steps { font-size: 13px; color: var(--muted); }
+  .steps ol { padding-left: 20px; }
+  .footer { color: var(--muted); font-size: 12px; margin-top: 32px; text-align: center; }
+  .footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <h1>Mingliang Lab · Surge 模組</h1>
+  <div class="sub">點「一鍵安裝」直接跳轉 Surge，或複製連結手動新增。全部模組免 MitM、開源透明。</div>
+
+  <div id="modules"></div>
+
+  <div class="card steps">
+    <h2>手動安裝步驟</h2>
+    <ol>
+      <li>複製上方任一模組連結</li>
+      <li>開啟 Surge →「模組」→「安裝新模組」</li>
+      <li>貼上連結並確認，Panel 類模組回到首頁即可看到</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    MIT License ·
+    <a href="https://github.com/brytt1017/surge-modules" target="_blank" rel="noopener">GitHub</a>
+    · 僅供學習與個人網路管理使用
+  </div>
+
+<script>
+  const BASE = "https://raw.githubusercontent.com/brytt1017/surge-modules/main/modules/";
+  const MODULES = [
+    { file: "adblock.sgmodule", name: "AdBlock 廣告封鎖", type: "Rule",
+      desc: "封鎖常見廣告聯播網、程序化廣告與行動廣告 SDK 域名。" },
+    { file: "privacy-guard.sgmodule", name: "Privacy Guard 隱私防護", type: "Rule",
+      desc: "封鎖行為追蹤、歸因統計、熱圖與螢幕錄製回傳服務。" },
+    { file: "crypto-panel.sgmodule", name: "Crypto Panel 加密貨幣面板", type: "Panel",
+      desc: "首頁顯示 BTC / ETH / SOL 即時價格與 24h 漲跌（Binance 公開 API）。" },
+    { file: "killzone-panel.sgmodule", name: "ICT Killzone 面板", type: "Panel",
+      desc: "顯示目前的 Killzone、剩餘時間與下一個時段。交易員專用，免 API。" },
+    { file: "fear-greed-panel.sgmodule", name: "恐懼貪婪指數面板", type: "Panel",
+      desc: "加密市場 Fear & Greed Index，今日 vs 昨日情緒對比。" },
+    { file: "network-info.sgmodule", name: "Network Info 網路資訊面板", type: "Panel",
+      desc: "顯示目前出口 IP、ISP 與所在地區。" }
+  ];
+
+  document.getElementById("modules").innerHTML = MODULES.map((m, i) => {
+    const raw = BASE + m.file;
+    const scheme = "surge:///install-module?url=" + encodeURIComponent(raw);
+    return `<div class="card">
+      <h2>${m.name}<span class="tag">${m.type}</span></h2>
+      <div class="desc">${m.desc}</div>
+      <div class="btns">
+        <a class="btn" href="${scheme}">一鍵安裝</a>
+        <button class="btn copy" onclick="copyLink(this, '${raw}')">複製連結</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  function copyLink(btn, url) {
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = "已複製 ✓";
+      btn.classList.add("done");
+      setTimeout(() => { btn.textContent = "複製連結"; btn.classList.remove("done"); }, 1500);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+#!name=Privacy Guard 隱私防護
+#!desc=封鎖行為追蹤、歸因統計、熱圖與螢幕錄製回傳服務。純規則、免 MitM。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Rule]
+# --- 流量統計 / 行為分析 ---
+DOMAIN-SUFFIX,scorecardresearch.com,REJECT
+DOMAIN-SUFFIX,quantserve.com,REJECT
+DOMAIN-SUFFIX,chartbeat.com,REJECT
+DOMAIN-SUFFIX,mixpanel.com,REJECT
+DOMAIN-SUFFIX,amplitude.com,REJECT
+DOMAIN-SUFFIX,segment.io,REJECT
+DOMAIN-SUFFIX,segment.com,REJECT
+DOMAIN-SUFFIX,mc.yandex.ru,REJECT
+DOMAIN-SUFFIX,statcounter.com,REJECT
+
+# --- 熱圖 / 使用者行為錄製 ---
+DOMAIN-SUFFIX,hotjar.com,REJECT
+DOMAIN-SUFFIX,fullstory.com,REJECT
+DOMAIN-SUFFIX,mouseflow.com,REJECT
+DOMAIN-SUFFIX,clarity.ms,REJECT
+DOMAIN-SUFFIX,inspectlet.com,REJECT
+DOMAIN-SUFFIX,luckyorange.com,REJECT
+
+# --- 行動歸因 / 安裝追蹤 ---
+DOMAIN-SUFFIX,appsflyer.com,REJECT
+DOMAIN-SUFFIX,adjust.com,REJECT
+DOMAIN-SUFFIX,adjust.io,REJECT
+DOMAIN-SUFFIX,branch.io,REJECT
+DOMAIN-SUFFIX,kochava.com,REJECT
+DOMAIN-SUFFIX,singular.net,REJECT
+DOMAIN-SUFFIX,tenjin.io,REJECT
+
+# --- 中國區常見統計 SDK ---
+DOMAIN-SUFFIX,umeng.com,REJECT
+DOMAIN-SUFFIX,umengcloud.com,REJECT
+DOMAIN-SUFFIX,talkingdata.com,REJECT
+DOMAIN-SUFFIX,growingio.com,REJECT
+DOMAIN-SUFFIX,zhugeio.com,REJECT

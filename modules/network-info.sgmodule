@@ -1,0 +1,10 @@
+#!name=Network Info 網路資訊面板
+#!desc=Surge 首頁顯示目前出口 IP、ISP 與所在地區。預設 10 分鐘更新。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Panel]
+network-info = script-name=network-info,update-interval=600
+
+[Script]
+network-info = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/brytt1017/surge-modules/main/scripts/network-info.js

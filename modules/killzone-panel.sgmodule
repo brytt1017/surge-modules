@@ -1,0 +1,10 @@
+#!name=ICT Killzone 面板
+#!desc=Surge 首頁顯示目前的 ICT Killzone（亞洲盤／倫敦／紐約 AM／倫敦收盤／紐約 PM）、剩餘時間與下一個時段。純本地計算、免 API。預設 1 分鐘更新。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Panel]
+killzone-panel = script-name=killzone-panel,update-interval=60
+
+[Script]
+killzone-panel = type=generic,timeout=5,script-path=https://raw.githubusercontent.com/brytt1017/surge-modules/main/scripts/killzone-panel.js

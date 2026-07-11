@@ -1,0 +1,10 @@
+#!name=恐懼貪婪指數面板
+#!desc=Surge 首頁顯示加密市場 Fear & Greed Index（今日 vs 昨日、情緒 emoji）。資料來源 alternative.me。預設 1 小時更新。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Panel]
+fear-greed-panel = script-name=fear-greed-panel,update-interval=3600
+
+[Script]
+fear-greed-panel = type=generic,timeout=10,script-path=https://raw.githubusercontent.com/brytt1017/surge-modules/main/scripts/fear-greed-panel.js

@@ -1,0 +1,53 @@
+#!name=AdBlock 廣告封鎖
+#!desc=封鎖常見廣告聯播網、程序化廣告與行動廣告 SDK 域名。純規則、免 MitM。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Rule]
+# --- Google 廣告體系 ---
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
+DOMAIN-SUFFIX,adservice.google.com,REJECT
+DOMAIN-SUFFIX,admob.com,REJECT
+
+# --- 程序化廣告交易所 / DSP / SSP ---
+DOMAIN-SUFFIX,adnxs.com,REJECT
+DOMAIN-SUFFIX,criteo.com,REJECT
+DOMAIN-SUFFIX,criteo.net,REJECT
+DOMAIN-SUFFIX,pubmatic.com,REJECT
+DOMAIN-SUFFIX,rubiconproject.com,REJECT
+DOMAIN-SUFFIX,openx.net,REJECT
+DOMAIN-SUFFIX,casalemedia.com,REJECT
+DOMAIN-SUFFIX,smartadserver.com,REJECT
+DOMAIN-SUFFIX,adsrvr.org,REJECT
+DOMAIN-SUFFIX,bidswitch.net,REJECT
+DOMAIN-SUFFIX,adform.net,REJECT
+DOMAIN-SUFFIX,yieldmo.com,REJECT
+DOMAIN-SUFFIX,sharethrough.com,REJECT
+DOMAIN-SUFFIX,media.net,REJECT
+
+# --- 原生廣告 / 內容推薦 ---
+DOMAIN-SUFFIX,taboola.com,REJECT
+DOMAIN-SUFFIX,outbrain.com,REJECT
+DOMAIN-SUFFIX,mgid.com,REJECT
+DOMAIN-SUFFIX,revcontent.com,REJECT
+
+# --- 影音廣告 ---
+DOMAIN-SUFFIX,teads.tv,REJECT
+DOMAIN-SUFFIX,spotxchange.com,REJECT
+DOMAIN-SUFFIX,springserve.com,REJECT
+DOMAIN-SUFFIX,moatads.com,REJECT
+
+# --- 行動廣告 SDK ---
+DOMAIN-SUFFIX,applovin.com,REJECT
+DOMAIN-SUFFIX,unityads.unity3d.com,REJECT
+DOMAIN-SUFFIX,vungle.com,REJECT
+DOMAIN-SUFFIX,inmobi.com,REJECT
+DOMAIN-SUFFIX,tapjoy.com,REJECT
+DOMAIN-SUFFIX,supersonicads.com,REJECT
+DOMAIN-SUFFIX,ironsrc.com,REJECT
+DOMAIN-SUFFIX,chartboost.com,REJECT
+DOMAIN-SUFFIX,startapp.com,REJECT
+DOMAIN-SUFFIX,mintegral.com,REJECT
+DOMAIN-SUFFIX,pangle.io,REJECT
