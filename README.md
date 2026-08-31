@@ -15,6 +15,7 @@
 | [Crypto Panel 加密貨幣面板](modules/crypto-panel.sgmodule) | Surge 首頁直接顯示 BTC / ETH / SOL 即時價格與 24h 漲跌（Binance 公開 API） | Panel |
 | [ICT Killzone 面板](modules/killzone-panel.sgmodule) | 顯示目前的 ICT Killzone（亞洲／倫敦／紐約 AM／倫敦收盤／紐約 PM）、剩餘時間與下一個時段，交易員專用 | Panel |
 | [恐懼貪婪指數面板](modules/fear-greed-panel.sgmodule) | 加密市場 Fear & Greed Index，今日 vs 昨日情緒對比 | Panel |
+| [美股時段面板](modules/us-market-panel.sgmodule) | 美股盤前／盤中／盤後／休市狀態、下一個轉換點倒數，含 NYSE 休市日與提早收盤日，免 API | Panel |
 | [Network Info 網路資訊面板](modules/network-info.sgmodule) | 顯示目前出口 IP、ISP、所在地區 | Panel |
 
 ## 安裝方式
@@ -36,7 +37,10 @@ https://raw.githubusercontent.com/brytt1017/surge-modules/main/modules/adblock.s
 目前所有模組都不需要 MitM 與解密憑證，安裝即用。
 
 **Q：面板多久更新一次？**
-Crypto Panel 預設 5 分鐘，Network Info 預設 10 分鐘，可在 `.sgmodule` 內自行調整 `update-interval`。
+Crypto Panel 與美股時段面板預設 5 分鐘，Network Info 預設 10 分鐘，恐懼貪婪指數預設 1 小時，可在 `.sgmodule` 內自行調整 `update-interval`。
+
+**Q：美股時段面板的休市日要自己更新嗎？**
+內建 NYSE 2026–2027 的休市日與提早收盤日，之後年度請更新 `scripts/us-market-panel.js` 開頭的 `HOLIDAYS` 與 `HALF_DAYS`（或開 PR）。
 
 **Q：某條規則誤擋了正常網站？**
 開 [Issue](../../issues) 附上域名，我會盡快處理。
