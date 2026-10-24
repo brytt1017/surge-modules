@@ -1,0 +1,10 @@
+#!name=外匯四大時段面板
+#!desc=Surge 首頁顯示雪梨／東京／倫敦／紐約四大外匯時段的開盤狀態、重疊時段與週末休市提示。自動處理各地夏令時間，純本地計算、免 API。預設 1 分鐘更新。
+#!category=Mingliang Lab
+#!author=Brytt
+
+[Panel]
+forex-session-panel = script-name=forex-session-panel,update-interval=60
+
+[Script]
+forex-session-panel = type=generic,timeout=5,script-path=https://raw.githubusercontent.com/brytt1017/surge-modules/main/scripts/forex-session-panel.js
